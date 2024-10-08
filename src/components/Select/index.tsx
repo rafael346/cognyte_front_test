@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 type Option = {
   title: string;
-  value: string;
+  value: number;
 };
 
 type SelectProps = {
