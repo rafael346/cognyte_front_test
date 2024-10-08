@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    &.start {
+        justify-content: start;
+    }
+
+    &.centered {
+        justify-content: center;
+    }
+
+    &.end {
+        justify-content: end;
+    }
+    
+    &.spaceBetween{
+      justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+        align-items: start;
+    }
+}

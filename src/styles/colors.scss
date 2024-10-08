@@ -1,0 +1,45 @@
+:root {
+  // Basic Color Palette
+  --basic-black: #1f1d1d;
+  --basic-white: #ffffff;
+  --basic-grey: #f6f6f6;
+  --basic-background: #fafafa;
+
+  // Color Palette
+  --primary-color-dark: #0d0851;
+  --primary-color-main: #363272;
+  --primary-color-light: #30a8e0;
+  --primary-color-background: #f8f8ff;
+  --primary-color-gradient: linear-gradient(
+    113.56deg,
+    var(--primary-color-light) 0.64%,
+    var(--primary-color-main) 90.54%
+  );
+
+
+  // Color Palette | Text
+  --text-color-6: #263238;
+  --text-color-5: #37474f;
+  --text-color-4: #455a64;
+  --text-color-3: #78909c;
+  --text-color-2: #cfd8dc;
+  --text-color-1: #e8ecee;
+
+  // Color Palette | Sucess
+  --success-color-dark: #005024;
+  --success-color-main: #006f38;
+  --success-color-light: #009250;
+  --success-color-background: #e1f3ea;
+
+  // Color Palette | Warning
+  --warning-color-dark: #eeab00;
+  --warning-color-main: #fcc332;
+  --warning-color-light: #ffd772;
+  --warning-color-background: #fff8e8;
+
+  // Color Palette | Error
+  --error-color-dark: #aa2929;
+  --error-color-main: #eb5959;
+  --error-color-light: #f97f7f;
+  --error-color-background: #ffefef;
+}

@@ -1,0 +1,139 @@
+.container {
+  width: 100%;
+  position: relative;
+  padding-bottom: 10px;
+  text-align: start;
+
+  &.default {
+    p,
+    .option {
+      color: var(--text-color-3);
+    }
+  }
+
+  &.primary {
+    p,
+    .option {
+      color: var(--primary-color-main);
+    }
+  }
+
+  &.complementary {
+    p,
+    .option {
+      color: var(--complementary-color-main);
+    }
+  }
+
+  .field {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--text-color-1);
+    font-size: 14px;
+    color: var(--text-color-3);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: var(--basic-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    position: relative;
+
+    p {
+      margin: 0px;
+      text-align: start;
+      font-weight: 400;
+      overflow: hidden;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      border: 1px solid var(--text-color-2);
+    }
+
+    .value {
+      width: 92%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .icon {
+      width: 25px;
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      background-color: white;
+    }
+
+    .label {
+      font-size: 14px;
+      color: var(--text-color-3);
+      position: absolute;
+      top: 10px;
+      left: 8px;
+      transition: all ease-in-out 400ms;
+      vertical-align: middle;
+      transform-origin: 0%;
+      transition: all ease-in-out 400ms;
+      pointer-events: none;
+      background-color: var(--basic-white);
+
+      &.labelValueOn {
+        transform: scale(0.75) translateY(-1.7rem);
+      }
+    }
+  }
+
+  .field {
+    input:focus + label {
+      transform: scale(0.75) translateY(-1.7rem);
+    }
+  }
+
+  .options {
+    max-height: 150px;
+    overflow-y: scroll;
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    border-radius: 6px;
+    border: 1px solid var(--text-color-1);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: var(--basic-background);
+    z-index: 99;
+
+    .option {
+      font-size: 14px;
+      padding: 10px;
+      text-align: start;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--text-color-1);
+      }
+    }
+  }
+
+  i {
+    font-size: 10px;
+    color: red;
+    margin: 0px;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 90%;
+  }
+}
