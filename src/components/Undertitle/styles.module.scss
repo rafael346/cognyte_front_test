@@ -1,0 +1,45 @@
+.text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0px;
+
+    &.default{
+        color: var(--basic-black)
+    }
+
+    &.primary {
+        color: var(--primary-color-dark);
+    }
+
+    &.primaryLight {
+        color: var(--primary-color-light);
+    }
+
+    &.complementary {
+        color: var(--complementary-color-dark);
+    }
+
+    &.grey{
+        color: var(--text-color-4);
+    }
+
+    &.grey2 {
+      color: var(--text-color-3);
+    }
+  
+    &.grey3 {
+      color: var(--text-color-6);
+    }
+
+    &.white{
+        color: var(--basic-white);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .text {
+        font-size: 14px;
+    }
+}

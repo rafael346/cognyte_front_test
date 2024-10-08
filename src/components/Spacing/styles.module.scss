@@ -1,0 +1,38 @@
+.container {
+
+    &.xxxSmall {
+        margin: 2px;
+    }
+
+    &.xxSmall {
+        margin: 4px;
+    }
+
+    &.xSmall {
+        margin: 6px;
+    }
+
+    &.small {
+        margin: 8px;
+    }
+
+    &.medium {
+        margin: 12px;
+    }
+
+    &.large {
+        margin: 16px;
+    }
+
+    &.xLarge {
+        margin: 20px;
+    }
+
+    &.xxLarge {
+        margin: 24px;
+    }
+
+    &.xxxLarge {
+        margin: 32px;
+    }
+}

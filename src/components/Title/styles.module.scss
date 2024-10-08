@@ -1,0 +1,42 @@
+.text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin: 0px;
+    white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+
+    &.default{
+        color: var(--basic-black)
+    }
+
+    &.primary {
+        color: var(--primary-color-main);
+    }
+
+    &.complementary {
+        color: var(--complementary-color-main);
+    }
+
+    &.white {
+        color: var(--basic-white);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .text {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+  .text {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+

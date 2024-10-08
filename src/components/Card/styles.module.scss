@@ -1,0 +1,54 @@
+.container {
+    border-radius: 8px;
+
+    &.default {
+        background-color: var(--basic-white);
+    }
+
+    &.primary {
+        background-color: var(--primary-color-background);
+    }
+
+    &.complementary {
+        background-color: var(--complementary-color-background);
+    }
+
+    &.success {
+        background-color: var(--success-color-backgroundd);
+        color: var(--success-color-main);
+    }
+
+    &.warning {
+        background-color: var(--warning-color-background);
+        color: var(--warning-color-dark);
+    }
+
+    &.error {
+        background-color: var(--error-color-background);
+        color: var(--error-color-main);
+    }
+    &.card {
+      background-color: #FAFAFA;
+    
+    }
+
+    &.green{
+      background-color: #E1F3EA;
+      color: #006F38;
+    }
+
+    &.fadedPrimary {
+      background-color: #F8F8FF;
+      color: var(--warning-color-main);
+    
+    }
+    &.fadedGrey{
+      background-color: #E8ECEE;
+      color:#455A64;
+    }
+
+    &.ghost {
+        background-color: var(--basic-white);
+        border: 1px solid var(--text-color-1);
+    }
+}

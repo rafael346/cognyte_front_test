@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import { createEvent, deleteEvent, getEvents, updateEvent } from '@/api/services/ApiCalls';
+import { createEvent, deleteEvent, getEvents, updateEvent } from '../api/services/ApiCalls';
 import React, {
   createContext,
   type SetStateAction,
