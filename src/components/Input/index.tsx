@@ -1,6 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from 'react';
 import styles from './styles.module.scss';
-import lock from '../../assets/icons/input-lock-icon.svg';
 
 type InputProps = {
   label?: string;
@@ -22,7 +21,6 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     position = 'start',
     error = false,
     errorMessage = 'Campo Obrigatório',
-    mask,
     ...rest
   },
   ref
@@ -38,7 +36,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
             ${value && styles.labelValueOn} 
             ${styles[position]}
           `}
-        // style={{ border: error && '2px solid red' }}
+        style={{ border: error ? '2px solid red' : 'none' }}
         ref={ref}
       />
       <label
@@ -48,11 +46,6 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         {label}
       </label>
       {icon && <div className={styles.icon}>{icon}</div>}
-      {disabled && (
-        <div className={styles.icon}>
-          <img src={lock} alt="" />
-        </div>
-      )}
     </div>
 
     {error ? <i>{errorMessage}</i> : <i> </i>}

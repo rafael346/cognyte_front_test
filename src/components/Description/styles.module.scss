@@ -1,0 +1,39 @@
+.text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0px;
+
+  &.default {
+    color: var(--basic-black);
+  }
+
+  &.primary {
+    color: var(--primary-color-main);
+  }
+
+  &.primaryDark {
+    color: #0A027E;
+  }
+
+  &.grey2 {
+    color: #78909c;
+  }
+
+  &.grey3 {
+    color: #263238;
+  }
+
+  &.complementary {
+    color: var(--complementary-color-main);
+  }
+
+  &.grey {
+    color: var(--text-color-4);
+  }
+
+  &.white {
+    color: var(--basic-white);
+  }
+}

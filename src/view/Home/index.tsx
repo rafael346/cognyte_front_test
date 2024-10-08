@@ -4,12 +4,14 @@ import Title from '../../components/Title';
 import EventCard from './components/EventCard';
 import { useEventData } from '../../hooks/useEventData';
 import { EventProps } from '../../types';
+import NewModal from './components/NewEventModal';
 
 export default function Home() {
   const { eventList } = useEventData();
   return (
     <div>
       <Title>Event list</Title>
+      <NewModal />
       <button>Add new event</button>
       {eventList.map((event: EventProps) => (
         <EventCard

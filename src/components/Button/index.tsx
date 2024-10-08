@@ -1,4 +1,4 @@
-import Spinner from 'components/Spinner';
+import Spinner from '../Spinner';
 
 import styles from './styles.module.scss';
 

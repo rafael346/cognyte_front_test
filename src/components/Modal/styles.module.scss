@@ -1,0 +1,80 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+}
+
+.modal {
+  background-color: white;
+  padding: 16px 16px;
+  border-radius: 8px;
+  height: 90vh;
+  overflow-y: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: 8px;
+
+    .description {
+      max-width: 404px;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .image {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  .body {
+    width: 80%;
+    margin: 0 auto;
+    text-align: start;
+  }
+
+  .footer {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container .modal {
+    width: 75% !important;
+    height: 70vh !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container .modal .body {
+    margin: 40px auto;
+  }
+}
+
