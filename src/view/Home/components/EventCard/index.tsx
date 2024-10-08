@@ -2,12 +2,24 @@ import React from 'react';
 import styles from './styles.module.scss';
 import { FaTrash } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
+import { EventProps } from '../../../../types';
 
-export default function index() {
+export default function EventCard({
+  id,
+  title,
+  startDate,
+  endDate,
+  currency,
+  eventStatus
+}: EventProps) {
   return (
     <div className={styles.card}>
-      <p className={styles.dateHour}>10/10/2024 - 12:30</p>
-      <p className={styles.eventName}>Event Name</p>
+      <div>
+        <p className={styles.dateHour}>{startDate}</p>
+        <p className={styles.dateHour}>{endDate}</p>
+      </div>
+
+      <p className={styles.eventName}>{title}</p>
       <button className={styles.editIcon}>
         <FaEdit size={18} />
       </button>
