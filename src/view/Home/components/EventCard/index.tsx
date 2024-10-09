@@ -5,6 +5,7 @@ import { FaEdit } from 'react-icons/fa';
 import { EventProps } from '../../../../types';
 import { useEventData } from '../../../../hooks/useEventData';
 import EditModal from '../EditEventModal';
+import Description from '../../../../components/Description';
 
 export default function EventCard({
   id,
@@ -18,12 +19,19 @@ export default function EventCard({
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={styles.card}>
-      <div>
-        <p className={styles.dateHour}>{startDate}</p>
-        <p className={styles.dateHour}>{endDate}</p>
+      <div className={styles.dateContainer}>
+        <p className={styles.date}>
+          {startDate.split('T')[0]} - {endDate.split('T')[0]}
+        </p>
+        <p className={styles.hour}>
+          {startDate.split('T')[1]} - {endDate.split('T')[1]}
+        </p>
+      </div>
+      <div className={styles.nameContainer}>
+        <p className={styles.eventName}>{title}</p>
+        <p className={styles.eventCurrency}>{'$' + currency}</p>
       </div>
 
-      <p className={styles.eventName}>{title}</p>
       <button className={styles.editIcon} onClick={() => setIsOpen(true)}>
         <FaEdit size={18} />
       </button>

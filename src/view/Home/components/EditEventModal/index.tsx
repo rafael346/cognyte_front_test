@@ -42,7 +42,7 @@ export default function EditModal({
   return (
     <Modal
       isOpen={isOpen}
-      title={eventTitle}
+      title="Update your event"
       description="Update event data and status"
       height="700px"
     >

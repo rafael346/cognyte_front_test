@@ -1,15 +1,22 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
 .card{
   display:flex;
   background-color: red;
   width: 100%;
   max-width: 400px;
   border-radius: 4px;
+  margin-bottom: 10px;
   height: 60px;
   font-family: 'Roboto';
   align-items: center;
   font-weight: 600;
   color:#fff;
-button{
+  button{
   border: none;
   background: transparent;
   cursor: pointer;
