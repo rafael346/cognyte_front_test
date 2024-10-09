@@ -47,7 +47,6 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
   async function handleDeleteEvent(id: number) {
     try {
       const response = await deleteEvent(id);
-      console.log(response.data);
       setUpdateList(!updateList);
     } catch (error) {
       console.log('Error');
@@ -56,9 +55,7 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
   async function handleUpdateEvent(id: number, body: any) {
     try {
       const response = await updateEvent(id, body);
-      setOpen(false);
       setUpdateList(!updateList);
-      console.log(response.data);
     } catch (error) {
       console.log('Error');
     }
@@ -68,7 +65,6 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
     try {
       const response = await createEvent(body);
       console.log(response.data);
-      setOpen(false);
       setUpdateList(!updateList);
     } catch (error) {
       console.log('Error');
