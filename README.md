@@ -1,4 +1,18 @@
 # Cognyte Front End  Test
+  
+Application designed to manage events, allowing the user to create, edit and delete events.
+
+
+## Overview
+The application is basically a CRUD, where it consumes data from the API.
+
+### Technical decisions
+
+The application is very simple so I chose not to use other more complex libraries, as there would be no need.
+
+For styling, I used some pre-made components that I made myself and just adapted to use in the application.
+
+The design is not the best, my priority was to display the information in a clear and intuitive way, I know there is room for improvement, in case this is evaluated negatively, I have left in the links section some examples of apps in which I developed with much better and more worked interfaces and user experience.
 
 ## How to Run
 
@@ -35,12 +49,6 @@ The Application Runs on **localhost:5173**
 1. **EventCard**:  This Component displays information about the event and options to edit or delete the event.
 2. **NewEventModal**:  This Component open a modal  with a form to create a new event.
 3. **EditEventModal**: This Component open a modal  with all event data and allows the user to update event.
-
-
-## Third-Party Libraries
-
-
-## Overview
 
 
 ## Links
