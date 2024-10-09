@@ -5,8 +5,10 @@ import Spacing from '../../../../components/Spacing';
 import Button from '../../../../components/Button';
 import { NewModalProps } from '../../../../types';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useEventData } from '../../../../hooks/useEventData';
 
 export default function NewModal({ isOpen, setIsOpen }: NewModalProps) {
+  const { handleCreateEvent } = useEventData();
   const {
     handleSubmit,
     control,
@@ -27,7 +29,15 @@ export default function NewModal({ isOpen, setIsOpen }: NewModalProps) {
           if (end <= start) {
             alert('DATE RULE');
           } else {
-            console.log(data);
+            const body = {
+              title: data.eventTitle,
+              startDate: `${data.startDate}T${data.startHour}`,
+              endDate: `${data.endDate}T${data.endHour}`,
+              currency: parseFloat(data.price),
+              eventStatus: 1
+            };
+            handleCreateEvent(body);
+            setIsOpen(false);
           }
         })}
       >
