@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
+import { toast } from 'react-toastify';
 import { createEvent, deleteEvent, getEvents, updateEvent } from '../api/services/ApiCalls';
 import React, {
   createContext,
@@ -41,7 +42,7 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
       const response = await getEvents();
       setEventlist(response.data);
     } catch (error) {
-      console.log('Error');
+      alert(error);
     }
   }
   async function handleDeleteEvent(id: number) {
@@ -49,7 +50,7 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
       const response = await deleteEvent(id);
       setUpdateList(!updateList);
     } catch (error) {
-      console.log('Error');
+      alert(error);
     }
   }
   async function handleUpdateEvent(id: number, body: any) {
@@ -57,7 +58,7 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
       const response = await updateEvent(id, body);
       setUpdateList(!updateList);
     } catch (error) {
-      console.log('Error');
+      alert(error);
     }
   }
 
@@ -67,7 +68,7 @@ export function EventDataProvider({ children }: EventDataProviderProps) {
       console.log(response.data);
       setUpdateList(!updateList);
     } catch (error) {
-      console.log('Error');
+      alert(error);
     }
   }
 

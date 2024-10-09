@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from '../../components/Title';
 
 import EventCard from './components/EventCard';
@@ -9,6 +9,7 @@ import Button from '../../components/Button';
 import styles from './styles.module.scss';
 import Spacing from '../../components/Spacing';
 import Description from '../../components/Description';
+import { toast } from 'react-toastify';
 
 export default function Home() {
   const { eventList } = useEventData();

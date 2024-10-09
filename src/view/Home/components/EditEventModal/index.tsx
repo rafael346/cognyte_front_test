@@ -51,7 +51,7 @@ export default function EditModal({
           const start = new Date(data.startDate);
           const end = new Date(data.endDate);
           if (end <= start) {
-            alert('DATE RULE');
+            alert('Invalid End Date! The Start Date cannot come before the End Date');
           } else {
             if (eventStatus === status.title) {
               const body = {
