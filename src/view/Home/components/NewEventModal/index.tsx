@@ -3,30 +3,81 @@ import Modal from '../../../../components/Modal';
 import { Input } from '../../../../components/Input';
 import Spacing from '../../../../components/Spacing';
 import Button from '../../../../components/Button';
+import { NewModalProps } from '../../../../types';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-export default function NewModal() {
+export default function NewModal({ isOpen, setIsOpen }: NewModalProps) {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors }
+  } = useForm();
+
   return (
     <Modal
-      isOpen
+      isOpen={isOpen}
       title="Create a new event"
       description="Choose when and how much your event will cost"
       height="600px"
     >
-      <Input name="eventTitle" label="Event Name" value="" />
-      <div style={{ display: 'flex' }}>
-        <Input name="startDate" label="Start Date" />
+      <form
+        onSubmit={handleSubmit((data) => {
+          const start = new Date(data.startDate);
+          const end = new Date(data.endDate);
+          if (end <= start) {
+            alert('DATE RULE');
+          } else {
+            console.log(data);
+          }
+        })}
+      >
+        <Controller
+          name="eventTitle"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => <Input label="Event Name" {...field} />}
+        />
+
+        <div style={{ display: 'flex' }}>
+          <Controller
+            name="startDate"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <Input label="Start Date" {...field} type="date" />}
+          />
+          <Spacing />
+          <Controller
+            name="startHour"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <Input label="Start Hour" {...field} type="time" />}
+          />
+        </div>
+        <div style={{ display: 'flex' }}>
+          <Controller
+            name="endDate"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <Input label="End Date" {...field} type="date" />}
+          />
+          <Spacing />
+          <Controller
+            name="endHour"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <Input label="End Hour" {...field} type="time" />}
+          />
+        </div>
+        <Controller
+          name="price"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => <Input label="Price" {...field} />}
+        />
+        <Button text="Create" width="100%" type="submit" />
         <Spacing />
-        <Input name="startHour" label="Start Hour" />
-      </div>
-      <div style={{ display: 'flex' }}>
-        <Input name="endDate" label="End Date" />
-        <Spacing />
-        <Input name="endHour" label="End Hour" />
-      </div>
-      <Input name="price" label="Price" />
-      <Button text="Create" width="100%" />
-      <Spacing />
-      <Button text="Cancel" width="100%" appearance="ghost" />
+        <Button text="Cancel" width="100%" appearance="ghost" onClick={() => setIsOpen(false)} />
+      </form>
     </Modal>
   );
 }

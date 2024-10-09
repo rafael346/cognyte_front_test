@@ -31,7 +31,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         {...rest}
         autoComplete="off"
         disabled={disabled}
-        value={value}
+        //value={value}
         className={`
             ${value && styles.labelValueOn} 
             ${styles[position]}

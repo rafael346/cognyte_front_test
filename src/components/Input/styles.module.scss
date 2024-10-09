@@ -58,9 +58,9 @@
     transition: all ease-in-out 400ms;
     pointer-events: none;
 
-    &.labelValueOn {
+   
       transform: scale(0.75) translateY(-1.5rem);
-    }
+   
   }
 
   .container {
