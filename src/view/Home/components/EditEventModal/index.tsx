@@ -1,24 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from '../../../../components/Modal';
 import { Input } from '../../../../components/Input';
 import Spacing from '../../../../components/Spacing';
 import Button from '../../../../components/Button';
 import Select from '../../../../components/Select';
 import { Controller, useForm } from 'react-hook-form';
+import { EditModalProps, NewModalProps } from '../../../../types';
+import { formatDate } from '../../../../utils/mask';
+import { useEventData } from '../../../../hooks/useEventData';
 
-export default function EditModal() {
+type FormValues = {
+  eventTitle: string;
+  startDate: string;
+  startHour: string;
+  endDate: string;
+  endHour: string;
+  price: number;
+};
+
+export default function EditModal({
+  isOpen,
+  setIsOpen,
+  eventTitle,
+  startDate,
+  endDate,
+  price,
+  id,
+  eventStatus
+}: EditModalProps) {
+  const { handleUpdateEvent } = useEventData();
+  const [status, setStatus] = useState({
+    title: eventStatus,
+    value: 0
+  });
   const {
     handleSubmit,
     control,
     formState: { errors }
-  } = useForm();
+  } = useForm<FormValues>({});
 
   return (
     <Modal
-      isOpen
-      title="Update your event"
+      isOpen={isOpen}
+      title={eventTitle}
       description="Update event data and status"
-      height="600px"
+      height="700px"
     >
       <form
         onSubmit={handleSubmit((data) => {
@@ -27,52 +53,89 @@ export default function EditModal() {
           if (end <= start) {
             alert('DATE RULE');
           } else {
-            console.log(data);
+            if (eventStatus === status.title) {
+              const body = {
+                title: data.eventTitle,
+                startDate: `${data.startDate}T${data.startHour}`,
+                endDate: `${data.endDate}T${data.endHour}`,
+                currency: data.price,
+                eventStatus: eventStatus
+              };
+              handleUpdateEvent(id, body);
+              setIsOpen(false);
+            } else {
+              const body = {
+                title: data.eventTitle,
+                startDate: `${data.startDate}T${data.startHour}`,
+                endDate: `${data.endDate}T${data.endHour}`,
+                currency: data.price,
+                eventStatus: status.value
+              };
+              handleUpdateEvent(id, body);
+              setIsOpen(false);
+            }
           }
         })}
       >
         <Controller
           name="eventTitle"
           control={control}
-          rules={{ required: true }}
-          render={({ field }) => <Input label="Event Name" {...field} />}
+          render={({ field }) => <Input label="Event Name" defaultValue={eventTitle} {...field} />}
         />
 
         <div style={{ display: 'flex' }}>
           <Controller
             name="startDate"
             control={control}
-            rules={{ required: true }}
-            render={({ field }) => <Input label="Start Date" {...field} type="date" />}
+            render={({ field }) => (
+              <Input
+                label="Start Date"
+                {...field}
+                type="date"
+                defaultValue={startDate.split('T')[0]}
+              />
+            )}
           />
           <Spacing />
           <Controller
             name="startHour"
             control={control}
-            rules={{ required: true }}
-            render={({ field }) => <Input label="Start Hour" {...field} type="time" />}
+            render={({ field }) => (
+              <Input
+                label="Start Hour"
+                {...field}
+                type="time"
+                defaultValue={startDate.split('T')[1]}
+              />
+            )}
           />
         </div>
         <div style={{ display: 'flex' }}>
           <Controller
             name="endDate"
             control={control}
-            rules={{ required: true }}
-            render={({ field }) => <Input label="End Date" {...field} type="date" />}
+            render={({ field }) => (
+              <Input label="End Date" {...field} type="date" defaultValue={endDate.split('T')[0]} />
+            )}
           />
           <Spacing />
           <Controller
             name="endHour"
             control={control}
-            rules={{ required: true }}
-            render={({ field }) => <Input label="End Hour" {...field} type="time" />}
+            render={({ field }) => (
+              <Input
+                label="End Hour"
+                {...field}
+                type="time"
+                defaultValue={startDate.split('T')[1]}
+              />
+            )}
           />
         </div>
         <Controller
           name="price"
           control={control}
-          rules={{ required: true }}
-          render={({ field }) => <Input label="Price" {...field} />}
+          render={({ field }) => <Input label="Price" {...field} defaultValue={price} />}
         />
         <Select
           width="100%"
@@ -91,12 +154,17 @@ export default function EditModal() {
               value: 3
             }
           ]}
-          value={'city'}
-          onClick={(data) => /**/ {}}
+          value={status.title}
+          onClick={(data) => setStatus(data)}
         />
-        <Button text="Update" width="100%" />
+        <Button text="Update" width="100%" type="submit" />
         <Spacing />
-        <Button text="Cancel Update" width="100%" appearance="ghost" />
+        <Button
+          text="Cancel Update"
+          width="100%"
+          appearance="ghost"
+          onClick={() => setIsOpen(!isOpen)}
+        />
       </form>
     </Modal>
   );
